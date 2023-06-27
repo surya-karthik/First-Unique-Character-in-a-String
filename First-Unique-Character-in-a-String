@@ -1,0 +1,25 @@
+function firstUniqChar(s) {
+
+  // Create an array to store character frequencies
+  const charFreq = new Array(26).fill(0);
+
+  // Count the frequency of each character
+  for (let i = 0; i < s.length; i++) {
+    const charCode = s.charCodeAt(i) - 97; // Get the character code and adjust it to 0-based index
+    charFreq[charCode]++;
+  }
+
+  // Iterate through the string to find the first non-repeating character
+  for (let i = 0; i < s.length; i++) {
+    const charCode = s.charCodeAt(i) - 97; // Get the character code and adjust it to 0-based index
+    if (charFreq[charCode] === 1) {
+      return i;
+    }
+  }
+
+  // If no non-repeating character is found, return -1
+  return -1;
+}
+
+
+console.log(firstUniqChar( "loveleetcode"));  
